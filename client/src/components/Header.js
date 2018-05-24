@@ -22,13 +22,13 @@ export default class Header extends React.Component {
 		const authLinks = (
 			<ul className="navbar-nav ml-auto">
 				<li className="nav-item">
-					<a href="#" className="nav-link">
+					<a href="/" className="nav-link">
 						{user.nickname}
 						{"  "}
 					</a>
 				</li>
 				<li className="nav-item">
-					<a href="#" onClick={this.onLogoutClick} className="nav-link">
+					<a href="/" onClick={this.onLogoutClick} className="nav-link">
 						Logout
 					</a>
 				</li>

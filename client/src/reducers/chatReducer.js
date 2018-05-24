@@ -1,4 +1,4 @@
-import { NEW_MESSAGE, SET_MESSAGES, SET_USERS } from "../actions/types";
+import { NEW_MESSAGE, SET_MESSAGES } from "../actions/types";
 
 const initialState = [];
 
