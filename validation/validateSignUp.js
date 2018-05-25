@@ -16,7 +16,7 @@ export default data => {
 	}
 
 	if (Validator.isEmpty(data.nickname)) {
-		errors.email = "Nickname is required";
+		errors.nickname = "Nickname is required";
 	}
 
 	if (!Validator.isLength(data.password, { min: 6, max: 30 })) {
