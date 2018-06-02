@@ -41,14 +41,8 @@ router.post("/signin", async (req, res) => {
 		const { errors, isValid } = validateSignIn(req.body);
 		if (!isValid) return res.status(400).json(errors);
 		const { email, password } = req.body;
-		let user, isMatch;
-		try {
-			user = await User.findOne({ email });
-			isMatch = await bcrypt.compare(password, user.password);
-		} catch (err) {
-			errors.login = "Email or password incorrect";
-			return res.status(400).json(errors);
-		}
+		const user = await User.findOne({ email });
+		const isMatch = await bcrypt.compare(password, user.password);;
 		if (!user || !isMatch) {
 			errors.login = "Email or password incorrect";
 			return res.status(400).json(errors);
@@ -60,7 +54,7 @@ router.post("/signin", async (req, res) => {
 			res.json({ success: true, token: "Bearer " + token });
 		});
 	} catch (err) {
-		res.status(400).json({});
+		res.status(400).json({login: "Email or password incorrect"});
 		console.log(err);
 	}
 });
